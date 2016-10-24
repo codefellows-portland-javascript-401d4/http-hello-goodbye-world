@@ -1,0 +1,2 @@
+Simple http server that prints 'hello world' when the /hello url is visited, and 'goodbye world' when the /goodbye url is visited. 
+After starting the server, navigate a browser to localhost:8888/hello or localhost:8888/goodbye to see the results.
