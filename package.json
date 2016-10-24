@@ -1,0 +1,20 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsmeds/http-hello-goodbye-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nsmeds/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/nsmeds/http-hello-goodbye-world#readme"
+}
