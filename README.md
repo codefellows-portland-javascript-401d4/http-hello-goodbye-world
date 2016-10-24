@@ -1,59 +1,24 @@
-# Bitmap transformer
+# HTTP hello/goodbye world server
 
 ## Description
 
-TODO: Add program description.
+This simple server responds with 'Hello, world!' if '/' or '/hello' is the URL, and 'Goodbye, world!' if '/goodbye' is the URL. If any other URL is given, it returns a 404.
 
 ## Code Example
 
 ```
-const Bitmap = require('./lib/bitmap-xfmr');
-let myBmp = new Bitmap('example-bitmap.bmp', (err) => { console.log(err || 'Done!'); });
-myBmp.transform('redder', 3);
-myBmp.writeBufferToFile('images/example-redder3.bmp', (err) => { console.log(err || 'Done writing!'); });
+node http-hello-goodbye-world.js
 ```
+
+Then point your browser to http://localhost:3000, http://localhost:3000/hello, or http://localhost:3000/goodbye.
 
 ## Motivation
 
-This was written as a lab assignment for Code Fellows 401 class. Currently it supports paletted and non-paletted bitmaps in the standard Windows NT/3.1+ BITMAPINFOHEADER format.
-
-## API Reference
-
-### Constructor
-
-```myBmp = new Bitmap(filename, [callback(err, data)]);```
-
-Construct a new Bitmap from the data in filename.
-
-### Transformer
-
-```myBmp.transform(label, [arguments])```
-
-Transform the bitmap where label is one of the available transforms:
- - 'redder' makes the image redder by a specified factor
- - 'bluer' makes the image bluer...
- - 'greener' makes the image greener...
- - 'invert' inverts the colors in the image (i.e. new_color = 255 - old_color)
- - 'grayscale' makes the image grayer by a specified factor
-
-Example:
-
-```
-myBmp.transform('redder', 3);
-myBmp.writeBufferToFile('images/redder3.bmp', (err) => {
-  console.log(err || 'Done!');
-});
-```
-
-### Save to file
-
-```myBmp.writeBufferToFile(filename, [callback(err, data)])```
-
-Write the Bitmap object's buffer out to a .bmp file.
+This was written as a lab assignment for Code Fellows 401 class. The server spins up on port 3000.
 
 ## Tests
 
-The accompanying test suite can be run using the 'npm test' command.
+No tests implemented yet. ~~The accompanying test suite can be run using the 'npm test' command.~~
 
 ## Contributors
 

@@ -1,7 +1,7 @@
 const http = require('http');
 
 const server = http.createServer((req, resp) => {
-  console.log(req.url);
+  console.log(`Received request for ${req.url}`);
   resp.statusCode = 200;
   if ((req.url === '/') || (req.url === '/hello')) {
     resp.write('Hello, world!');
