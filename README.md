@@ -2,7 +2,15 @@
 
 ## Description
 
-This simple server responds with 'Hello, world!' if '/' or '/hello' is the URL, and 'Goodbye, world!' if '/goodbye' is the URL. If any other URL is given, it returns a 404.
+This simple server responds with different responses based on the URL:
+
+`/` or `/hello` => `'Hello, world!'`
+
+`/goodbye` => `'Goodbye, world!'`
+
+`/hows-the-weather` => `'It's cool and rainy. :-('`
+
+If any other URL is given, it returns a 404 with a helpful error message.
 
 ## Code Example
 
