@@ -1,0 +1,33 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "0.0.1",
+  "description": "A http server that responses to two routes with little messages, to practice using Node's http support.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "eslint *.js",
+    "test": "mocha",
+    "watch": "mocha -w *.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GloriaAnholt/http-hello-goodbye-world.git"
+  },
+  "keywords": [
+    "http"
+  ],
+  "author": "Gloria Anholt",
+  "license": "CC-BY-NC-4.0",
+  "bugs": {
+    "url": "https://github.com/GloriaAnholt/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/GloriaAnholt/http-hello-goodbye-world#readme"
+}
