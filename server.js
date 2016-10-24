@@ -1,19 +1,24 @@
-const http = require('http');
+const http = require('http'); 
+var router = require("./router");
+// const indexHtml = fs.createReadStream('index.html');
+const url = require('url');
 
 
-const server = http.createServer(function(req, res){
-    console.log(req.url);
-    res.write('Hey world');
-    res.end;
-});
+function start(route) {
+    function onRequest(request, response) {
+        var pathname = url.parse(request.url).pathname; 
+        console.log('Request for ' + pathname + ' received.'); 
 
-var port = 8080;
+        route(pathname);
 
-server.listen(function(thisport, err){
-    thisport = port;
-    if (err) console.log('error is ', err);
-    else console.log('http server listening on port ', thisport);
-});
+        response.writeHead(200, {'Content-Type': 'text/plain'}); 
+        response.write('Hello World');
+        response.end();
+    }
+    
+    const port = 8080;
 
-
-module.exports = server;
+    http.createServer(onRequest).listen(port);
+    console.log('Server has started on port ', port );
+}
+exports.start = start;
