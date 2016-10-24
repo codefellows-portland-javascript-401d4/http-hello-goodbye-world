@@ -14,8 +14,9 @@ If any other URL is given, it returns a 404 with a helpful error message.
 
 ## Code Example
 
+If you specify the optional port number it will use that port; otherwise it will spin up on port 3000.
 ```
-node http-hello-goodbye-world.js
+node http-hello-goodbye-world.js <port_num>
 ```
 
 Then point your browser to `http://localhost:3000`, or `http://localhost:3000/<url>`.
