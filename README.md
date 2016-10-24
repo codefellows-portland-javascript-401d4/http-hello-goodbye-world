@@ -18,7 +18,7 @@ If any other URL is given, it returns a 404 with a helpful error message.
 node http-hello-goodbye-world.js
 ```
 
-Then point your browser to http://localhost:3000, or http://localhost:3000/<url>.
+Then point your browser to `http://localhost:3000`, or `http://localhost:3000/<url>`.
 
 ## Motivation
 
