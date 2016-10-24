@@ -3,17 +3,19 @@ const url = require('url');
 const fs = require('fs');
 const index = fs.createReadStream('index.html');
 
-function startItUp(route) {
-  function onReq(req, res) {
-    // var pathname = url.parse(req.url).pathname;
-    // route(pathname);
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.write(req.url + ' world');
-    res.end;
+const server = http.createServer((req, res) => {
+  console.log(req.url);
+  res.statusCode = 200;
+  if (req.url === '/hello') {
+    res.write('hello world');
+  } else if (req.url === '/goodbye') {
+    res.write('goodbye world');
   }
-  let port = 8888;
-  http.createServer(onReq).listen(port);
-  console.log('serving on ' + port);
-}
+    index.pipe(res);
+});
 
-exports.startItUp = startItUp;
+const port = 8888;
+server.listen(port, err => {
+  if (err) console.log('error: ', err);
+  else console.log('serving on ' + port);
+});
