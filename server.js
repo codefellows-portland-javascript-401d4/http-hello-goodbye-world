@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
   } else if (req.url === '/goodbye') {
     res.write('goodbye world');
   }
-    index.pipe(res);
+  index.pipe(res);
 });
 
 const port = 8888;
