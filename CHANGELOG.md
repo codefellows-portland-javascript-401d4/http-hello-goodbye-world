@@ -6,15 +6,15 @@ Format is based on Keep a Changelong (http://keepachangelog.com/) and the projec
 
 ## [1.1.0] - 2016-10-24
 ### Changed
-- Refactored to separate ChatRoom class into its own module
+- Add figlet node module
 
 ### Added
-- separate ChatRoom class module
-- tests
+- functionality to console.log 'Hello World!' and 'Goodbye World!" when navigating to /hello and /goodbye paths respectively
 
 ## [1.0.0] - 2016-10-24
 ### Changed
 - First release with MVP functionality
 
 ### Added
-- add & send & remove methods for the chat room to operate
+- add hello, goodbye, root path functionality
+- add error path functionality
