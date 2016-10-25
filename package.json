@@ -1,0 +1,19 @@
+{
+  "name": "httpserver",
+  "version": "1.0.0",
+  "description": "practice http server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjfreem1/httpServer.git"
+  },
+  "author": "mjfreem1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjfreem1/httpServer/issues"
+  },
+  "homepage": "https://github.com/mjfreem1/httpServer#readme"
+}
