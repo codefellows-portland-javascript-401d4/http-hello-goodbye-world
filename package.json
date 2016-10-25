@@ -1,0 +1,24 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "This is a simple http server with a couple of paths.",
+  "main": "http.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "lint": "eslint **/*.js",
+    "watch": "mocha -w"  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michellesri/http-hello-goodbye-world.git"
+  },
+  "author": "michellesri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michellesri/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/michellesri/http-hello-goodbye-world#readme",
+  "dependencies": {
+    "figlet": "^1.2.0"
+  }
+}
