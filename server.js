@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
         res.write(`hello world, ${req.url} is not the droid you're looking for?`);
         res.end();
     } else if (req.url === '/ferris') {
-        res.write(`Bueller...Bueller?`);
+        res.write('Bueller...Bueller?');
         res.end();
     }
 });
