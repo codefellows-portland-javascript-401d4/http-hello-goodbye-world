@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "class assignment using http server",
   "main": "index.js",
+  "devDependencies": {
+    "eslint": "^3.8.1"
+  },
   "scripts": {
     "pretest": "npm run lint",
     "test": "npm run test:run",
