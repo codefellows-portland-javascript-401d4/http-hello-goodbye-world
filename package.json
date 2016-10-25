@@ -4,10 +4,10 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "pretest": "npm run lint",
-    "test": "mocha",
-    "lint": "eslint .",
-    "test:watch": "npm run test:run -- -w"
+    // "pretest": "npm run lint",
+    // "test": "mocha",
+    // "lint": "eslint .",
+    // "test:watch": "npm run test:run -- -w"
   },
   "repository": {
     "type": "git",
