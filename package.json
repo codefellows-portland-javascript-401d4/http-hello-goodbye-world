@@ -1,0 +1,26 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test:run",
+    "lint": "eslint .",
+    "test:run": "mocha",
+    "test:watch": "npm run test:run -- -w",
+    "pretest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andybeers/http-hello-goodbye-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andybeers/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/andybeers/http-hello-goodbye-world#readme",
+  "dependencies": {
+    "figlet": "^1.2.0"
+  }
+}
