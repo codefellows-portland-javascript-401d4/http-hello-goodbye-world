@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Code 401 assignment 10-24-2016",
   "main": "http.js",
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gnkatchmar/http-hello-goodbye-world.git"
