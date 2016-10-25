@@ -13,8 +13,7 @@ function route(pathname, response) {
     }
     response.write(message);
     response.end();
-    return message;
 }
 
 
-exports.route = route;
+exports.router = route;
