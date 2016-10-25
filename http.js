@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const figlet = require('figlet');
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
