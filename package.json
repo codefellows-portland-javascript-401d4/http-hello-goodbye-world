@@ -1,27 +1,19 @@
 {
-  "name": "tyristomcat",
+  "name": "tyler",
   "version": "1.0.0",
   "description": "",
-  "main": "test.js",
-  "scripts": {
-    // "pretest": "npm run lint",
-    // "test": "mocha",
-    // "lint": "eslint .",
-    // "test:watch": "npm run test:run -- -w"
-  },
+  "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/risafletcher/file-store.git"
+    "url": "git+https://github.com/viper86/hello-goodbye.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/risafletcher/file-store/issues"
+    "url": "https://github.com/viper86/hello-goodbye/issues"
   },
-  "homepage": "https://github.com/risafletcher/file-store#readme",
+  "homepage": "https://github.com/viper86/hello-goodbye#readme",
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.8.1",
-    "mocha": "^3.1.2"
+    "eslint": "^3.8.1"
   }
 }
