@@ -1,0 +1,39 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "http response lab",
+  "main": "server.js",
+  "scripts": {
+    "pretest": "eslint ./",
+    "test": "mocha httpTest.js",
+    "start": "nodemon server.js",
+    "test:watch": "mocha httpTest.js -w",
+    "lint": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuantumArchive/http-hello-goodbye-world.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuantumArchive/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/QuantumArchive/http-hello-goodbye-world#readme",
+  "dependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "figlet": "^1.2.0",
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "open": "0.0.5"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "figlet": "^1.2.0",
+    "mocha": "^3.1.2",
+    "nodemon": "^1.11.0",
+    "open": "0.0.5"
+  }
+}
