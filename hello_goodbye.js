@@ -7,9 +7,9 @@ http.createServer(function (request, response) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
 
     if( url.parse(request.url).pathname == '/hello' ) {
-        response.write('Hello!');
+        response.write('hello world');
     } else if (url.parse(request.url).pathname == '/goodbye' ) {
-        response.write('Goodbye!');
+        response.write('goodbye world');
     }
 
     response.end();
