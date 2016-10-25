@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
             else console.log(`${figletized}`);
         });
     };
-    
+
     if (urlPath === '/') {
         figged('welcome to the main index');
         res.write('welcome to the main index');
@@ -33,5 +33,5 @@ const server = http.createServer((req, res) => {
 const port = 3000;
 server.listen(port, err => {
     if (err) console.log('ERROR!', err);
-    else console.log('http server listening on port ', port);
+    else console.log('http server listening on port', port);
 });
