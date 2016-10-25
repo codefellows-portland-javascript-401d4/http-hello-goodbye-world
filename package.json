@@ -1,0 +1,19 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "http-hello-goodbye-world",
+  "main": "hello_goodbye.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrewStock/http-hello-goodbye-world.git"
+  },
+  "author": "@DrewStock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrewStock/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/DrewStock/http-hello-goodbye-world#readme"
+}
