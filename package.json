@@ -1,6 +1,6 @@
 {
   "name": "http-hello-goodbye-world",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A http server that responses to two routes with little messages, to practice using Node's http support.",
   "main": "index.js",
   "directories": {
