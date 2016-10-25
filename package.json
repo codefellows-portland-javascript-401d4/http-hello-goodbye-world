@@ -1,0 +1,23 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "class assignment using http server",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "npm run test:run",
+    "lint": "eslint .",
+    "test:run": "mocha",
+    "test:watch": "npm run test:run -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPGothro/http-hello-goodbye-world.git"
+  },
+  "author": "@jpgothro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JPGothro/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/JPGothro/http-hello-goodbye-world#readme"
+}
