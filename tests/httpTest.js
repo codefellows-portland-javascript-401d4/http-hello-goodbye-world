@@ -63,6 +63,25 @@ describe('http server module battery tests', done => {
             });
     });
 
+    it('checks get handler paths are working', done => {
+        request
+            .get('/')
+            .end((err, res) => {
+                done();
+            });
+    });
+
+    it('posts new data to the database', done => {
+        request
+            .post('/users')
+            .set('Content-Type', 'text/plain')
+            .send('THEhmHNHSIHGGHGFHFNFIHOHJAHA:AH::AHH";gfd;gjfdg;sjJSIHJHISNHINHJSIDHNAHNIH')
+            .end((err, res) => {
+                done();
+            });
+    });
+
+
     // it('sends back text with format=text in query string', done => {
     //     request
     //         .get('/?format=text')
