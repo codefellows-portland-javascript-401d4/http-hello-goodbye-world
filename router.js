@@ -24,4 +24,4 @@ function route(pathname, response) {
   });
 }
 
-exports.route = route;
+module.exports = route;
