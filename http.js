@@ -4,15 +4,18 @@ const http = require('http');
 const fs = require('fs');
 const indexHtml = fs.createReadStream('index.html');
 const cowsay = require('cowsay');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+chai.use(chaiHttp);
+var assert = chai.assert;
 
 const server = http.createServer((req, res) => {
-  console.log(req.url);
   res.statusCode = 200;
   if (req.url === '/') {
-    cowsay.say('hello, world');
+    console.log('hello, world');
   }
   else if (req.url === '/about') {
-    cowsay.say('abooooot page');
+    console.log('abooooot page');
   } else {
     res.end();
   }
