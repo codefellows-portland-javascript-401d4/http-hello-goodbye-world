@@ -1,14 +1,23 @@
 /** Created by Gloria on 10/24/16. **/
 
 const http = require('http');
-const url = require('url');
-const route = require('./router');
+const urlParser = require('url').parse;
+const querystring = require('querystring');
+const route = require('./router').route;
+const query = require('./router').query;
 
 function onRequest(request, response) {
-  var pathname = url.parse(request.url).pathname;
-  console.log('Request for ' + pathname + ' received.');
+  var url = urlParser(request.url);
+  var pathname = url.pathname;
+  var qs = querystring.parse(url.query);
 
-  route(pathname, response);
+  if (url.query) {
+    console.log('Query for ', qs);
+    query(qs, pathname, response)
+  } else {
+    console.log('Request for ' + pathname + ' received.');
+    route(pathname, response);
+  }
 }
 
 module.exports = http.createServer(onRequest);

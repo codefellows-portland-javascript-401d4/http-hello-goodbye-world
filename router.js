@@ -16,6 +16,14 @@ function route(pathname, response) {
     case '/bye':
       message = 'Goodbye world';
       break;
+    case '/dinosaurs':
+      message = 'Dinosaurs are awesome';
+      break;
+    case '/admin':
+      message = '403 Forbidden';
+      response.statusCode = 403;
+      response.status = 'Forbidden';
+      break;
     default:
       message = '404 Not Found!';
       response.statusCode = 404;
@@ -26,10 +34,30 @@ function route(pathname, response) {
     if (err) {
       console.log('You got an error: ', err);
     }
-
     response.write(data);
+    response.write('\n' + pathname);
     response.end();
   });
 }
 
-module.exports = route;
+function query(query, pathname, response) {
+  var message = pathname + '\n';
+  response.statusCode = 200;
+  response.status = 'A-okay';
+
+  for (key in query) {
+    message = key + ': ' + query[key].toString();
+  }
+
+  figlet(message, (err, data) => {
+    if (err) {
+      console.log('You got an error: ', err);
+    }
+    response.write(data);
+    response.write('\n' + pathname);
+    response.end();
+  });
+}
+
+exports.route = route;
+exports.query = query;
