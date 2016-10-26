@@ -7,8 +7,7 @@
     "pretest": "npm run lint",
     "test": "mocha",
     "lint": "eslint **/*.js",
-    "watch": "mocha -w",
-    "test": "return 0"
+    "watch": "mocha -w"
   },
   "repository": {
     "type": "git",
@@ -24,6 +23,8 @@
     "figlet": "^1.2.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "eslint": "^3.8.1",
     "mocha": "^3.1.2"
   }
