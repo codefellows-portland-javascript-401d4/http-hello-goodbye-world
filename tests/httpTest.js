@@ -94,6 +94,39 @@ describe('http server module battery tests', done => {
             });
     });
 
+    it('posts new data to the database that is valid json', done => {
+        request
+            .post('/users')
+            .set('Content-Type', 'application/json')
+            .send(JSON.stringify({name: 'doko'}))
+            .end((err, res) => {
+                assert.equal(res.res.statusMessage, 'post accepted');
+                done();
+            });
+    });
+
+    it('tests that the new user has been added by calling all users down', done => {
+        request
+            .get('/users')
+            .end((err, res) => {
+                if (err) return done(err);
+                assert.deepEqual(res.body, [{ name: 'foo' }, { name: 'bar'}, { name: 'qux'}, { name: 'doko'}]);
+                assert.equal(res.res.statusMessage, 'good to go!');
+                done();
+            });
+    });
+
+    it('tests to see whether a data can be deleted based on file path and see whether file was truly deleted from returned data', done => {
+        request
+            .del('/users/foo')
+            .end((err, res) => {
+                if (err) return done(err);
+                assert.equal(res.res.statusMessage, 'request complete, deletion performed!');
+                assert.deepEqual(res.body, [{ name: 'bar'}, { name: 'qux'}, { name: 'doko'}]);
+                done();
+            });
+    });
+
     after(done => {
         server.close(done);
     });
