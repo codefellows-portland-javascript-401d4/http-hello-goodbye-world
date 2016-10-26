@@ -1,0 +1,30 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "pretest": "npm run lint",
+    "test": "mocha test",
+    "lint": "eslint .",
+    "watch": "mocha test --watch"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MugsyCarter/http-hello-goodbye-world.git"
+  },
+  "author": "Mugsy Carter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MugsyCarter/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/MugsyCarter/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  }
+}
