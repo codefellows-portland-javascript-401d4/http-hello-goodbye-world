@@ -30,5 +30,7 @@
     "nodemon": "^1.11.0",
     "rimraf": "^2.5.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "figlet": "^1.2.0"
+  }
 }
