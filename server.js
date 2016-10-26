@@ -2,7 +2,7 @@
 
 const http = require('http');
 const fs = require('fs');
-const parseUrl = require('url').parse;
+// const parseUrl = require('url').parse;
 const qs = require('querystring');
 
 const server = http.createServer((req, res) => {
@@ -44,3 +44,5 @@ server.listen(port, err => {
     if (err) console.log('Error', err);
     else console.log(`http server listening on port ${port}`);
 });
+
+module.exports = server;
