@@ -1,6 +1,6 @@
 {
   "name": "http-hello-goodbye-world",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "http response lab",
   "main": "server.js",
   "scripts": {
