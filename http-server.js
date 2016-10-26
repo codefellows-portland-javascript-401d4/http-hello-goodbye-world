@@ -1,24 +1,17 @@
 const http = require('http');
 const fs = require('fs');
-var figlet = require('figlet');
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
     res.statusCode = 200;
 
     if (req.url === '/') {
-        fs.readFile('index.html', 'utf-8', (err, data) => {
-            if (err) {
-                res.statusCode = 500;
-                res.end('read page failed');
-            }
-            else {
-                res.write(data);
-                res.end();
-            }
-        });
-    } else {
+        res.write('hello, world!');
+        res.end();
+    } 
+    else {
         res.write('goodbye, world!');
+        res.end();
     }
 });
 
