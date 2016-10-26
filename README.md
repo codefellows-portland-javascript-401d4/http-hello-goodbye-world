@@ -10,7 +10,8 @@
 
 ### How To Use Codebase
   - This module uses Node and the following modules:
-    - eslint, chai for testing
+    - net module from node
+    - eslint, mocha, chai for testing
   - Please refer to the package.json for more info
 
 ### Use Cases
