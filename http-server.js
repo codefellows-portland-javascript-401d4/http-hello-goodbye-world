@@ -1,5 +1,6 @@
 const http = require('http');
 const fs = require('fs');
+var figlet = require('figlet');
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
@@ -16,6 +17,8 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         });
+    } else {
+        res.write('goodbye, world!');
     }
 });
 
