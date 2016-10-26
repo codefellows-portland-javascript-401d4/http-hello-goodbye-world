@@ -10,7 +10,7 @@ http.createServer(function(req, res) {
   console.log("requested resource:", req.method, url.pathname);
   res.writeHead(200, {"Content-Type": "text/plain"});
 	
-  if (req.method = "GET") {
+  if (req.method === "GET") {
 
     if ( url.pathname === "/") {
     	res.write("In " + url.pathname + " directory\nThe only other valid directory is /Members\n");
@@ -25,12 +25,12 @@ http.createServer(function(req, res) {
   	} else {
   			res.write("404 - Not Found\nI told you there are only / and /Members in this rinky-dink website!");
   		}
+			res.end();
   } else {
 			//non-GET method attempted
     res.write("405 - Method Not Allowed\nI'm not that kind of website!");
-  } 
-
-    res.end();
+		res.end();
+  }     
 
 }).listen(port, err => {
   if(err) console.log("Error in setting up port!", err);
