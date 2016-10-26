@@ -31,9 +31,10 @@ describe('http server module battery tests', done => {
         console.log('something');
     });
 
+
     it('sends back all json data', done => {
         request
-            .get('/users?id=all')
+            .get('/users')
             .end((err, res) => {
                 if (err) return done(err);
                 assert.deepEqual(res.body, [{ name: 'foo' }, { name: 'bar'}, { name: 'qux'}]);
@@ -44,7 +45,7 @@ describe('http server module battery tests', done => {
 
     it('sends back json object with name property of bar', done => {
         request
-            .get('/users?id=bar')
+            .get('/users/bar')
             .end((err, res) => {
                 if (err) return done(err);
                 assert.deepEqual(res.body, { name: 'bar'});
@@ -55,7 +56,7 @@ describe('http server module battery tests', done => {
 
     it('sends back error if you request for a user that doesn\'t exist', done => {
         request
-            .get('/users?id=doko')
+            .get('/users/doko')
             .end((err, res) => {
                 assert.equal(err.status, 400);
                 assert.equal(res.res.statusMessage, 'no such user!');
@@ -65,33 +66,33 @@ describe('http server module battery tests', done => {
 
     it('checks get handler paths are working', done => {
         request
-            .get('/')
+            .get('/admin')
             .end((err, res) => {
                 done();
             });
     });
 
-    it('posts new data to the database', done => {
+    it('sends back text with format=text in query string', done => {
+        request
+            .get('/users?format=text')
+            .end((err, res) => {
+                if (err) return done(err);
+                assert.equal(res.type, 'text/plain');
+                assert.equal(res.text, JSON.stringify([{ name: 'foo' }, { name: 'bar'}, { name: 'qux'}]));
+                done();
+            });
+    });
+
+    it('posts new data to the database that is not valid json', done => {
         request
             .post('/users')
             .set('Content-Type', 'text/plain')
             .send('THEhmHNHSIHGGHGFHFNFIHOHJAHA:AH::AHH";gfd;gjfdg;sjJSIHJHISNHINHJSIDHNAHNIH')
             .end((err, res) => {
+                assert.equal(err.response.res.text, 'not valid JSON data');
                 done();
             });
     });
-
-
-    // it('sends back text with format=text in query string', done => {
-    //     request
-    //         .get('/?format=text')
-    //         .end((err, res) => {
-    //             if (err) return done(err);
-    //             assert.equal(res.type, 'text/plain');
-    //             assert.equal(res.text, JSON.stringify({name:'foo'}));
-    //             done();
-    //         });
-    // });
 
     after(done => {
         server.close(done);
