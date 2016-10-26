@@ -20,6 +20,7 @@
   "homepage": "https://github.com/risafletcher/http-hello-goodbye-world#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "cowsay": "^1.1.8",
     "eslint": "^3.8.1",
     "mocha": "^3.1.2",
