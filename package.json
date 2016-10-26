@@ -4,7 +4,9 @@
   "description": "",
   "main": "http.js",
   "scripts": {
-    "test": "return: 0"
+    "test": "mocha",
+    "lint": "eslint **/*.js",
+    "pretest": "npm run lint"
   },
   "repository": {
     "type": "git",
