@@ -19,6 +19,25 @@ describe('http server', () => {
       });
   });
 
-  // it('sends back ')
+  it('sends back text with format=text in query string', done => {
+    request
+      .get('/?format=text')
+      .end((err, res) => {
+        if (err) return done(err);
+        assert.equal(res.type, 'text');
+        assert.equal(res.text, 'You requested: ?format=text')
+        done();
+      });
+  });
+
+  it('sends a POST request', done => {
+    request
+    .post('/hello/:hi')
+    .end((err, res) => {
+      if (err) return done(err);
+      assert.equal(res.text, 'You added a new resource: /hello/:hi');
+      done();
+    });
+  });
 
 });

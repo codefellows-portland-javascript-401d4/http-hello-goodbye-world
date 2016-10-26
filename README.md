@@ -1,2 +1,2 @@
-Simple http server that prints 'hello world' when the /hello url is visited, and 'goodbye world' when the /goodbye url is visited. 
-After starting the server, navigate a browser to localhost:8888/hello or localhost:8888/goodbye to see the results.
+Simple http server that prints 'hello world' when the /hello url or the index ('/') is visited, and 'goodbye world' when the /goodbye url is visited.
+The server will also allow you to create new paths with PUT, and it will return a description of your query parameters if you send a querystring in the url.
