@@ -9,7 +9,10 @@ const server = http.createServer((req, res) => {
 
     indexHtml.pipe(res);
     } else if (req.url === '/this') {
-        res.write(`hello world, ${req.url}`);
+        res.write(`Hello there captain!, ${req.url}`);
+        res.end();
+    } else if (req.url === '/other') {
+        res.write(`Happy Halloween!, ${req.url}`);
         res.end();
     }
 });
