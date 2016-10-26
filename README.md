@@ -1,6 +1,6 @@
-http-hello-goodbye-world is probably the simplest node.js server there can be.
+http-hello-goodbye-world is simple node.js server exercise.
 	
-Its only requirement is node's http command set.
+It requires node's http, url, and querystring command sets.
 
 It currently writes "Hello..." at root and "Goodbye..." at any other url. The if/else block that handles this is easily modified and expanded for additional urls.
 
