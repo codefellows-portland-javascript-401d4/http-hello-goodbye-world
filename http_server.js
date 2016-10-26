@@ -7,8 +7,6 @@ const route = require('./router');
 function onRequest(request, response) {
   var pathname = url.parse(request.url).pathname;
   console.log('Request for ' + pathname + ' received.');
-  response.statusCode = 200;
-  response.status = 'A-okay';
 
   route(pathname, response);
 }
