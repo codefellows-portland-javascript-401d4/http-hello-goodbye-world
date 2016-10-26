@@ -7,17 +7,22 @@ const test_server = require('../lib/HttpHelloGoodbyeServer');
 
 describe ('HTTP server', function() {
 
-  // const port = 3000;
-
-  // before ((done) => {
-  //   test_server.listen(port, done);
-  // });
-
   let request = chai.request(test_server);
 
   it('GET "/" returns "Hello, world!"', (done) => {
     request
       .get('/')
+      .end((err, res) => {
+        expect(err).to.be.null;
+        expect(res).to.have.status(200);
+        expect(res.text).to.equal('Hello, world!');
+        done();
+      });
+  });
+
+  it('GET "/hello" also returns "Hello, world!"', (done) => {
+    request
+      .get('/hello')
       .end((err, res) => {
         expect(err).to.be.null;
         expect(res).to.have.status(200);
@@ -64,12 +69,22 @@ describe ('HTTP server', function() {
     task4: 'Do a big project'
   };
 
-  it ('GET "/todo" returns a list of tasks to do', (done) => {
+  it ('GET "/todo" returns a list of tasks as text (stringified JSON)', (done) => {
     request
       .get('/todo')
       .end((err, res) => {
-        // console.log('res.text: ', res.text);
+        expect(res).to.be.text;
         expect(JSON.parse(res.text)).to.deep.equal(expected_todo_list);
+        done();
+      });
+  });
+
+  it ('GET "/todo?format=json" returns a list of tasks as a JSON object', (done) => {
+    request
+      .get('/todo?format=json')
+      .end((err, res) => {
+        expect(res).to.be.json;
+        expect(res.body).to.deep.equal(expected_todo_list);
         done();
       });
   });
@@ -82,4 +97,23 @@ describe ('HTTP server', function() {
         done();
       });
   });
+
+  it ('GET "/favorite?coffee" returns "Sulawesi"', (done) => {
+    request
+      .get('/favorite?coffee')
+      .end((err, res) => {
+        expect(res.text).to.equal('Sulawesi');
+        done();
+      });
+  });
+
+  it ('POST "/favorite?coffee=Kenya" returns "Sorry, not changing my favorite to Kenya!"', (done) => {
+    request
+      .post('/favorite?coffee=Kenya')
+      .end((err, res) => {
+        expect(res.text).to.equal('Sorry, not changing my favorite to Kenya!');
+        done();
+      });
+  });
+
 });
