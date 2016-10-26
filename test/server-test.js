@@ -25,7 +25,7 @@ describe('http server', () => {
       .end((err, res) => {
         if (err) return done(err);
         assert.equal(res.type, 'text');
-        assert.equal(res.text, 'You requested: ?format=text')
+        assert.equal(res.text, 'You requested: ?format=text');
         done();
       });
   });
