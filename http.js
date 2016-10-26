@@ -13,22 +13,21 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, {
       'Content-Type': 'text/html'
     });
-    res.statusCode = 200;
     fs.readFile('index.html', 'utf8', (err, data) => {
       if (err) {
         res.statusCode = 500;
         res.end('READ FAILURE');
       } else {
         res.write(data);
+        console.log(res.text);
         res.end();
       }
     });
   } else if (method === 'POST' && reqPath.pathname === '/bacon') {
     res.writeHead(200, {
-      'Content-Type': 'application/json' 
+      'Content-Type': 'text/html' 
     });
-    res.statusCode = 200;
-    res.write('You want to add: ' + JSON.stringify(query) + ' to the database!');
+    res.write(JSON.stringify(query));
     res.end();
   } else {
     res.statusCode = 404;
