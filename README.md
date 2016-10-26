@@ -16,10 +16,9 @@
 
 ### Use Cases
   - this code is a simple http server that runs on localhost:8080
-  - navigating to localhost:8080/ displays 'pages served using node http'
   - navigating to localhost:8080/goodbye displays 'goodbye world, you asked for the path: /goodbye' and console.logs 'Goodbye World!' using figlet module
-
   - navigating to localhost:8080/hello displays 'hello world, you asked for the path: /hello' and console.logs 'Hello World!' using figlet module
+  - navigating to other localhost:8080/<something_else> displays 'there is no path at /<something_else> please check your map'
   - navigating to other localhost:8080/<something_else> displays 'there is no path at /<something_else> please check your map'
 
 ### Code Shape
