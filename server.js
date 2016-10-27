@@ -7,38 +7,80 @@ const cowsay = require('cowsay');
 const server = http.createServer((request, response) => {
     var url = Url.parse(request.url);
     var path = url.pathname.replace('/', '');
-    var query = url.querystring;
+    var queryStr = url.query;
+    var queryObj = qs.parse(queryStr);
 
     var badWords = ['beef', 'hamburger', 'stroganoff', 'meat', 'meatballs', 'hotdog', 'pastrami', 'brisket'];
 
-    console.log('Url: ',url);
-    console.log('path: ', path);
-    console.log('querystring: ', query);
-
-    var msg;
     var cowObj = {
-        text: msg,
-        e: '00',
+        text: '',
+        e: '()',
         T: 'U'
     };
 
-    var cow = {
-        emotion: 'happy',
-        breed: 'ascii',
-        size: 'tiny'
-    };
+    if (request.method === 'POST') {
+        var body = [];
+        request.on('data', data => {
+            body.push(data);
+        }).on('end', () => {
+            
+            body = JSON.parse(Buffer.concat(body).toString());
 
+            var msg = body.id + ' received.\n {\n';
+            for (var key in body) {
+                msg += key + ' : ' + body[key] + '\n';
+            }
+            msg += '}';
+
+            cowObj.text = msg;
+            response.write(cowsay.say(cowObj));
+            response.end();
+        });
+    }
     
-    if (badWords.indexOf(path) !== -1) { // path includes any badWords
-        console.log('bad words', badWords.indexOf(path));
+    else if (badWords.indexOf(path) !== -1) { // path includes any badWords
         response.statusCode = 404;
         response.statusMessage = 'Cows not found';
-        console.log(response.statusCode); }
-    // } else {
-    //     response.write("COW COW COW");
-    // }
+        response.end();
+    } else if (queryStr) {
+//maybe break this out into it's own module
+        let msg = '';
+// cool feature to add: use the banned words list in here, so you can't make the cow say I am meat.
+        for (var key in queryObj) {
+            if (queryObj[key] === 'true') {
+                msg += 'I am ' + key + '.\n';
+            }
+
+            if (queryObj[key] !== 'false' && queryObj[key] !== 'true') {
+                msg += 'I am ' + queryObj[key] + '.\n';
+            }
+
+            if (queryObj[key] === 'false') {
+                msg += 'I am not ' + key  + '.\n';
+            }
+        }
+
+        if (path) {
+            msg += 'I like to think about ' + path + '.\n';
+        }
+        msg += 'Moooo.';
+        cowObj.text = msg;
+        response.write(cowsay.say(cowObj));
+        response.end();
+    } else if (path) {
+        let msg = 'I am a cow and I like to think about ' + path +'.';
+        cowObj.text = msg;
+        response.write(cowsay.say(cowObj));
+        response.end();
+    } else if (!path) {
+        cowObj.text = 'Moooo! Hi!';
+        response.write(cowsay.say(cowObj));
+        response.end();
+    } 
+
 
 });
+
 
 module.exports = server;
 

@@ -4,29 +4,53 @@ var chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 var assert = chai.assert;
 
-describe('server.js', done => {
+describe('server.js', () => {
 
     var request = chai.request(server);
 
-    it('returns 404 if path is a meat food', () => {
+    it('responds to POST request', done => {
         request
-        .get('/beef')
+        .post('/')
+        .send('{"id":"1234"}')
         .end((err, res) => {
             if (err) return done(err);
-            assert.equal(res.status, 404);
+            assert.include(res.text, 'id : 1234');
+            assert.include(res.text, 'received');
             done();
         });
     });
 
-    it('returns sentence with properties if given a query string.', () => {
+    it('handles query strings correctly', done => {
         request
-        .get('/?emotion=happy&&size=big%%')
-        .end(err,res) => {
-            if (err) return done(err);
-            assert.include(res.text, 'happy');
-            assert.include(res.text, 'big');
-        }
-    })
+            .get('/?diet=vegetarian&meat=false&cute=true')
+            .end((err, res) => {
+                if (err) return done(err);
+                assert.include(res.text, 'I am vegetarian.');
+                assert.include(res.text, 'I am not meat.');
+                assert.include(res.text, 'I am cute.');
+                done();
+            });
+    });
+
+    it('includes path in text', done => {
+        request
+            .get('/grass')
+            .end((err, res) => {
+                if (err) return done(err);
+                assert.include(res.text, 'I like to think about grass.');
+                done();
+            });
+    });
+
+
+    it('returns 404 if path is a meat food', (done) => {
+        request
+        .get('/beef')
+        .end((err, res) => {
+            chai.expect(res).status(404);
+            done();
+        });
+    });
 
 
 });
