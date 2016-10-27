@@ -107,9 +107,10 @@ describe ('HTTP server', function() {
       });
   });
 
-  it ('POST "/favorite?coffee=Kenya" returns "Sorry, not changing my favorite to Kenya!"', (done) => {
+  it ('POST "/favorite" with { coffee: "Kenya" } returns "Sorry, not changing my favorite to Kenya!"', (done) => {
     request
-      .post('/favorite?coffee=Kenya')
+      .post('/favorite')
+      .send({'coffee': 'Kenya'})
       .end((err, res) => {
         expect(res.text).to.equal('Sorry, not changing my favorite to Kenya!');
         done();
