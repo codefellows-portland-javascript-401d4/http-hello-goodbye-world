@@ -2,7 +2,11 @@ http-hello-goodbye-world is simple node.js server exercise.
 	
 It requires node's http, url, and querystring command sets.
 
-It currently writes "Hello..." at root and "Goodbye..." at any other url. The if/else block that handles this is easily modified and expanded for additional urls.
+It replicates a simple two-page website that uses the url & querystring techniques to output appropriately. 
+
+It also crudely mimics error handling for non-GET attempts and non-existent paths.
+
+The if/else block and associated techniques therein are easily modified and can be expanded for additional paths.
 
 ISC License (ISC)
 Copyright (c) 2016, Gregory N. Katchmar <gunk55@msn.com>
