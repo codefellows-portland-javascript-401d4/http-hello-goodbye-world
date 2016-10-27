@@ -1,0 +1,19 @@
+{
+  "name": "http-hello-goodbye-world-lab-assignment",
+  "version": "1.0.0",
+  "description": "http lab assignment",
+  "main": "http.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanPickard/http-hello-goodbye-world.git"
+  },
+  "author": "Nathan Pickard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanPickard/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/NathanPickard/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "eslint": "^3.8.1"
+  }
+}
