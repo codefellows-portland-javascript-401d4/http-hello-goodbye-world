@@ -4,8 +4,8 @@
   "description": "simple http server router req handler",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
+    "test": "return 0",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,5 @@
     "mocha": "^3.1.2"
   },
   "dependencies": {
-    "figlet-cli": "^0.1.0"
   }
 }
