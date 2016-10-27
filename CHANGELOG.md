@@ -5,10 +5,12 @@ Format is based on Keep a Changelong (http://keepachangelog.com/) and the projec
 
 ## [1.2.0] - 2016-10-26
 ### Changed
-
+- refactored figlet functionality
+- replaced hard-coded values with variables
 
 ### Added
-- functionality to navigate to /french-dip path
+- browser and console.log functionality when navigating to /french-dip, /hello?needs=time, /hello?needs=date paths
+- browser and console.log functionality when sending a POST request to /french-dip path
 
 
 ## [1.1.0] - 2016-10-24
@@ -16,8 +18,10 @@ Format is based on Keep a Changelong (http://keepachangelog.com/) and the projec
 - Add figlet node module
 
 ### Added
-- functionality to console.log 'Hello World!' and 'Goodbye World!" when navigating to /hello and /goodbye paths respectively
+- browser display and console.log functionality when navigating to /hello and /goodbye paths
+- browser display and console.log functionality when navigating to an unknown path
 - functionality to display what path user asked for on index.html
+
 
 ## [1.0.0] - 2016-10-24
 ### Changed
