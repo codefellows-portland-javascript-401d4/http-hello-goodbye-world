@@ -1,37 +1,44 @@
 const http = require('http');
+const Url = require('url');
+const qs = require('querystring');
 const cowsay = require('cowsay');
 
 
 const server = http.createServer((request, response) => {
-    console.log(request.url);
-    response.statusCode = 200;
-    if (request.url === '/') {
-        var hiMsg = cowsay.say({
-            text: 'Hi!!!!',
-            e: '00',
-            T: 'U'
-        });
-        response.write(hiMsg);
-        response.end();
-    } else {
-        var text = 'I\'m a cow and I think about ' + request.url.replace('/', '');
-        var byeMsg = cowsay.say({
-            text: text,
-            e: 'Oo',
-            T: 'U'
-        });
-       
-        response.write(byeMsg);
-        response.end();
-    }
+    var url = Url.parse(request.url);
+    var path = url.pathname.replace('/', '');
+    var query = url.querystring;
+
+    var badWords = ['beef', 'hamburger', 'stroganoff', 'meat', 'meatballs', 'hotdog', 'pastrami', 'brisket'];
+
+    console.log('Url: ',url);
+    console.log('path: ', path);
+    console.log('querystring: ', query);
+
+    var msg;
+    var cowObj = {
+        text: msg,
+        e: '00',
+        T: 'U'
+    };
+
+    var cow = {
+        emotion: 'happy',
+        breed: 'ascii',
+        size: 'tiny'
+    };
+
+    
+    if (badWords.indexOf(path) !== -1) { // path includes any badWords
+        console.log('bad words', badWords.indexOf(path));
+        response.statusCode = 404;
+        response.statusMessage = 'Cows not found';
+        console.log(response.statusCode); }
+    // } else {
+    //     response.write("COW COW COW");
+    // }
 
 });
 
+module.exports = server;
 
-
-const port = 3000;
-
-server.listen(port, err => {
-    if (err) {console.log('error: ', err);}
-    else {console.log('server listening on port: ', port);}
-});
