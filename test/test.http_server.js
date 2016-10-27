@@ -22,11 +22,9 @@ describe('http-server', () => {
   });
 
   it('sends a query string and processes it', done => {
-
     const input = 'type: awesome';
     figlet(input, (err, message) => {
       if (err) done(err);
-
       server
         .get('/dinosaurs?type=awesome')
         .end((err, res) => {
@@ -36,6 +34,25 @@ describe('http-server', () => {
           done();
         })
     })
-  })
+  });
+
+  it('returns a 403 when you hit a forbidden page', done => {
+    server
+      .get('/admin')
+      .end((err, res) => {
+        assert.equal(res.status, 403);
+        done();
+      })
+  });
+
+  it('returns a 404 when you hit a non-existent page', done => {
+    server
+      .get('/goobldygook')
+      .end((err, res) => {
+        assert.equal(res.status, 404);
+        done();
+      })
+  });
+
 });
 
