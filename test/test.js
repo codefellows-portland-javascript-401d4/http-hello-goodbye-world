@@ -6,18 +6,12 @@ const expect = require('chai').expect;
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
-
-//  let request = chai.request(server.start(router.route);
-
-
-
 describe('HTML webapp that has routes', function(){
 
     it('loads the webpage', function(done){
         server.start(router.route);
         chai.request('http://localhost:8080')
         .get('/')
-        // .get('/Swahili')
         .end(function (err, res) {
             expect(err).to.be.null;
             assert(res.text ==='Which language; English, Spanish, French, German, Swahili, or Mandarin?');
@@ -29,7 +23,6 @@ describe('HTML webapp that has routes', function(){
         chai.request('http://localhost:8080')
         .get('/Swahili')
         .end(function (err, res) {
-            console.log(res.text);
             expect(err).to.be.null;
             assert(res.text ==='Salamu, Dunia.');
             done();
@@ -40,20 +33,19 @@ describe('HTML webapp that has routes', function(){
         chai.request('http://localhost:8080')
         .get('/French')
         .end(function (err, res) {
-            console.log(res);
             expect(err).to.be.null;
             assert(res.text ==='Bonjour le monde.');
             done();
         });
     });
 
-    it('sends back text with format=text in query string', function(done){
-        chai.request('http://localhost:8080')
-            .get('/?format=text')
+    it('sends back special text with time of day in the Spanish query string', function(done){
+        chai.request('http://localhost:8080/Spanish')
+            .get('?time=evening')
             .end((err, res) => {
                 if (err) return done(err);
                 assert.equal(res.type, 'text/plain');
-                assert.equal(res.text, `{"name":"foo"}`);
+                assert.equal(res.text, 'Buenos noches, Mundo');
                 done();
             });
     });
