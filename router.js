@@ -1,4 +1,4 @@
-const addGreeting = require('./addGreeting'); 
+const addGreeting = require('./addGreeting');
 
 function route(pathname, response, querystring) {
     console.log('About to route a request for ' + pathname);

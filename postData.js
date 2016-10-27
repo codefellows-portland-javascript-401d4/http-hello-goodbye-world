@@ -1,22 +1,12 @@
-const http = require('http'); 
-const url = require('url');
-const request = require(request);
+var request = require('superagent');
+var elements = require('./data/elements');
+// var prefix = require('superagent-prefix')('/static');
 
+var postData = function(){
+    console.log('posting ', elements);
+    request.post('http://localhost:8080')
+        .write('{"name":"tj","pet":"tobi"}')
+        .end();
+};
 
-request
-   .post('http://localhost:8080/elements');
-   .send({ name: 'Manny', species: 'cat' })
-   .set('X-API-Key', 'foobar')
-   .set('Accept', 'application/json')
-   .end(function(err, res){
-     if (err || !res.ok) {
-       alert('Oh no! error');
-     } else {
-       alert('yay got ' + JSON.stringify(res.body));
-     }
-   });
-    http.request(options, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            console.log(body);
-        }
-    });
+module.exports = postData;

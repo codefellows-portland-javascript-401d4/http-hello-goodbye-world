@@ -1,6 +1,6 @@
 const http = require('http'); 
 const url = require('url');
-
+const postData = require('./postData'); 
 
 function start(route) {
     function onRequest(request, response) {
@@ -14,6 +14,7 @@ function start(route) {
 
     http.createServer(onRequest).listen(port);
     console.log('Server has started on port ', port );
+    // postData(); 
 }
 
 exports.start = start;
