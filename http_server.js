@@ -10,6 +10,7 @@ function onRequest(request, response) {
   var url = urlParser(request.url);
   var pathname = url.pathname;
   var qs = querystring.parse(url.query);
+  response.setHeader('Content-Type', 'text/plain');
 
   if (url.query) {
     console.log('Query for ', qs);
