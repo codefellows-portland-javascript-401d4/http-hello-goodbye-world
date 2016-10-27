@@ -1,4 +1,5 @@
 const figlet = require('figlet');
+const querystring = require('querystring');
 
 function route(pathname, response) {
   console.log('Routing request for ' + pathname);
@@ -59,5 +60,39 @@ function query(query, pathname, response) {
   });
 }
 
+function poster(pathname, request, response) {
+  var message = '';
+  response.statusCode = 200;
+  response.status = 'A-okay';
+  request.on('data', data => {
+    message += data;
+    if (message.length > 1e6) {  // close it down if the post is too big
+      request.connection.destroy();
+      response.statusCode = 413;
+      response.status = 'Payload too large!';
+    }
+  });
+  request.on('end', () => {
+    var postdata = querystring.parse(message);
+    var text = '';
+
+    for (key in postdata) {
+      text = key + ': ' + postdata[key].toString();
+    }
+
+    figlet(text, (err, data) => {
+      if (err) {
+        console.log('You got an error: ', err);
+      }
+      response.write(data);
+      response.write('\n' + pathname);
+      response.end();
+    });
+  });
+
+
+}
+
 exports.route = route;
 exports.query = query;
+exports.poster = poster;
