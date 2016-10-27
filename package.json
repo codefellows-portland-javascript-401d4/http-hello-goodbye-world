@@ -1,0 +1,33 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "This is an http server...",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "lint": "eslint .",
+    "test": "npm run test:run",
+    "test:run": "mocha -R nyan",
+    "test:watch": "npm run test:run -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthugon/http-hello-goodbye-world.git"
+  },
+  "author": "@nthugon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthugon/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/nthugon/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.8.1",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0",
+    "url": "^0.11.0"
+  }
+}
