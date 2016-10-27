@@ -1,0 +1,19 @@
+{
+  "name": "tyler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viper86/hello-goodbye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viper86/hello-goodbye/issues"
+  },
+  "homepage": "https://github.com/viper86/hello-goodbye#readme",
+  "devDependencies": {
+    "eslint": "^3.8.1"
+  }
+}
