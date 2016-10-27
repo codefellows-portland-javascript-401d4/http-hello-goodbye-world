@@ -14,7 +14,7 @@ describe('HTML webapp that has routes', function(){
         .get('/')
         .end(function (err, res) {
             expect(err).to.be.null;
-            assert(res.text ==='Which language; English, Spanish, French, German, Swahili, or Mandarin?');
+            assert(res.text ==='Which language would you like to be greeted in: \n English, Spanish, French, German, Swahili, or Mandarin?\n \n  To add your own enter "new" as the url and then query your language and greeting as a querystring.  \n\n   Example: /new?samoan=Talofa, le Lalolagi.');
             done();
         });
     });
