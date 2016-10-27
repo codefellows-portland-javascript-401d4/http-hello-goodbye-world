@@ -1,4 +1,4 @@
-const server = require('./hello_goodbye');
+const server = require('./lib/hello_goodbye');
 
 const port = 5000;
 
