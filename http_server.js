@@ -15,10 +15,10 @@ function onRequest(request, response) {
 
   if (pathname === '/post' && request.method === 'POST') {
     console.log('Posting data to /post');
-    poster(pathname, request, response)
+    poster(pathname, request, response);
   } else if (url.query) {
     console.log('Query for ', qs);
-    query(qs, pathname, response)
+    query(qs, pathname, response);
   } else {
     console.log('Request for ' + pathname + ' received.');
     route(pathname, response);

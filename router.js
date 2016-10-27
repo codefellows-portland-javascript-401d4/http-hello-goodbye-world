@@ -8,27 +8,27 @@ function route(pathname, response) {
   response.status = 'A-okay';
 
   switch (pathname) {
-    case '/':
-      message = 'Welcome!';
-      break;
-    case '/hello':
-      message = 'Hello world';
-      break;
-    case '/bye':
-      message = 'Goodbye world';
-      break;
-    case '/dinosaurs':
-      message = 'Dinosaurs are awesome';
-      break;
-    case '/admin':
-      message = '403 Forbidden';
-      response.statusCode = 403;
-      response.status = 'Forbidden';
-      break;
-    default:
-      message = '404 Not Found!';
-      response.statusCode = 404;
-      response.status = 'Not found';
+  case '/':
+    message = 'Welcome!';
+    break;
+  case '/hello':
+    message = 'Hello world';
+    break;
+  case '/bye':
+    message = 'Goodbye world';
+    break;
+  case '/dinosaurs':
+    message = 'Dinosaurs are awesome';
+    break;
+  case '/admin':
+    message = '403 Forbidden';
+    response.statusCode = 403;
+    response.status = 'Forbidden';
+    break;
+  default:
+    message = '404 Not Found!';
+    response.statusCode = 404;
+    response.status = 'Not found';
   }
 
   figlet(message, (err, data) => {
@@ -46,7 +46,7 @@ function query(query, pathname, response) {
   response.statusCode = 200;
   response.status = 'A-okay';
 
-  for (key in query) {
+  for (let key in query) {
     message = key + ': ' + query[key].toString();
   }
 
@@ -76,7 +76,7 @@ function poster(pathname, request, response) {
     var postdata = querystring.parse(message);
     var text = '';
 
-    for (key in postdata) {
+    for (let key in postdata) {
       text = key + ': ' + postdata[key].toString();
     }
 
