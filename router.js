@@ -41,7 +41,7 @@ function route(pathname, response) {
 }
 
 function query(query, pathname, response) {
-  var message = pathname + '\n';
+  var message;
   response.statusCode = 200;
   response.status = 'A-okay';
 
