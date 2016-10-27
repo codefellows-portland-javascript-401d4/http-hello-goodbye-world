@@ -6,5 +6,6 @@ var handle = {};
 handle['/'] = requestHandlers.hello;
 handle['/hello'] = requestHandlers.hello;
 handle['/goodbye'] = requestHandlers.goodbye;
+handle['/shalom'] = requestHandlers.shalom;
 
 server.hello(router.route, handle);
