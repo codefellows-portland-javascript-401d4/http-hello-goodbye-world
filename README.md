@@ -9,10 +9,17 @@
   - console.log will display different responses depending on path selected
 
 ### How To Use Codebase
-  - This module uses Node and the following modules:
+  - This module uses Node, npm and the following modules:
     - net module from node
     - eslint, mocha, chai for testing
+  - Make sure to run npm install from the directory to install dependencies
   - Please refer to the package.json for more info
+
+  - To use this module, from the command line at the root of the directory type:
+    ```
+    $ npm start
+    ``` 
+  - Then open a browser window and navigate to the address localhost:8080/ 
 
 ### Use Cases
   - this code is a simple http server that runs on localhost:8080
