@@ -2,7 +2,7 @@
   "name": "http-hello-goodbye-world-lab-assignment-part-2",
   "version": "1.0.0",
   "description": "http lab assignment part-2",
-  "main": "http.js",
+  "main": "http-server.js",
   "scripts": {
     "test": "npm run test:run",
     "test:run": "mocha"

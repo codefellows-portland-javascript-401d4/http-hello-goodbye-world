@@ -44,4 +44,15 @@ describe('test http server', () => {
                     done();
                 });
         });
+
+        it('query - ?happy=halloween', done => {
+            request
+                .get('/?happy=halloween')
+                .end((err, response) => {
+                    if(err) return done(err);
+                    expect(response).to.have.status(200);
+                    assert.deepEqual(response.text, 'Happy Halloween!');
+                    done();
+                });
+            });
     });
