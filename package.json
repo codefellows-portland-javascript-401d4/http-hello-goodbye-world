@@ -1,8 +1,12 @@
 {
-  "name": "http-hello-goodbye-world-lab-assignment",
+  "name": "http-hello-goodbye-world-lab-assignment-part-2",
   "version": "1.0.0",
-  "description": "http lab assignment",
+  "description": "http lab assignment part-2",
   "main": "http.js",
+  "scripts": {
+    "test": "npm run test:run",
+    "test:run": "mocha"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NathanPickard/http-hello-goodbye-world.git"
@@ -14,6 +18,9 @@
   },
   "homepage": "https://github.com/NathanPickard/http-hello-goodbye-world#readme",
   "devDependencies": {
-    "eslint": "^3.8.1"
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "eslint": "^3.8.1",
+    "mocha": "3.1.2"
   }
 }
