@@ -1,27 +1,36 @@
-// const chai = require('chai');
-// const chaiHttp = require('chai-http');
-// chai.use(chaiHttp);
-// const assert = chai.assert;
-// const server = require('../lib/http-server');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+chai.use(chaiHttp);
+const assert = chai.assert;
+const server = require('../lib/server');
 
-// describe('server test', () => {
-//   var request = chai.request(server);
+describe('server test', () => {
+  var request = chai.request(server);
+  var port = 8080;
 
-//   it('sends back JSON response', done => {
-//     request.get('/')
-//     .end((error, response) => {
-//       if (error) return done(error);
-//       assert.deepEqual(res.body, {name:'foo'});
-//       done();
-//     });
-//   });
+  before(done => {
+    server.listen({port: port}, done);
+  });
 
-//   it('sends back text with format=text in query string', done => {
-//     request.get('/?format=text')
-//     .end((error, response) => {
-//       if (error) return done(error);
-//       assert.equal(response.type, 'text/plain');
-//       assert.equal(response.text, `{"name":"foo"}`);
-//     });
-//   });
-// });
+  it('sends back JSON response', done => {
+    request.get('/')
+    .end((error, response) => {
+      if (error) return done(error);
+      assert.deepEqual(response.body, {name:'foo'});
+      done();
+    });
+  });
+
+  it('sends back get response', done => {
+    request.get('/?hello=hello')
+    .end((error, response) => {
+      if (error) return done(error);
+      assert.include(response.body, "request method \"get\"");
+      done();
+    });
+  });
+
+  after(done => {
+    server.close(done);
+  });
+});
