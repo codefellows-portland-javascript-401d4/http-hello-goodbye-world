@@ -1,4 +1,4 @@
-var figlet = require('figlet-cli');
+var assert = require('assert');
 var reqHandlers = require('../lib/requestHandlers');
 
 describe('Tests TBA', () => {
