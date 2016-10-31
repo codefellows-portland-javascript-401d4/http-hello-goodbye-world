@@ -11,7 +11,8 @@ const server = http.createServer((request, response) => {
     const url = parseUrl(request.url);
 
     if (request.url === '/') {
-        const hello = 'hello, \n world';
+        console.log('You requested:', request.url)
+        const hello = 'hello, \nworld';
         figlet(hello, {
             font: 'isometric2',
             horizontalLayout: 'default',
@@ -21,8 +22,8 @@ const server = http.createServer((request, response) => {
       });
     } 
     else if (request.url === '/blue-heeler?type=dog&breed=acd') {
-        console.log(qs.parse('/blue-heeler?type=dog&breed=acd'));
-        const acd = 'australian \n cattle dog';
+        console.log('You requested:', qs.parse('/blue-heeler?type=dog&breed=acd'));
+        const acd = 'australian \ncattle dog';
         figlet(acd, {
             font: 'avatar',
             horizontalLayout: 'default',
@@ -32,6 +33,7 @@ const server = http.createServer((request, response) => {
       });
     }
     else if (request.url === '/get' && request.method === 'GET') {
+        console.log('You requested:', request.url)
         const akcSays = 'an alert, curious, & pleasant herding dog';
         figlet(akcSays, {
             font: 'stampatello',
@@ -42,7 +44,8 @@ const server = http.createServer((request, response) => {
       });
     }
     else if(request.url === '/end') {
-        const goodbye = 'goodbye, \n world';
+        console.log('You requested:', request.url)
+        const goodbye = 'goodbye, \nworld';
         figlet(goodbye, {
             font: 'isometric2',
             horizontalLayout: 'default',
@@ -52,8 +55,8 @@ const server = http.createServer((request, response) => {
       });
     }
     else {
-        response.statusCode = 400;
-        response.end('ERROR: PAGE NOT FOUND');
+        const error = response.statusCode = 400;
+        response.end(`${error} ERROR \nBAD REQUEST`);
     }
 });
 
