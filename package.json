@@ -1,20 +1,21 @@
 {
   "name": "http-hello-goodbye-world",
   "version": "1.0.0",
-  "description": "http-lab-1",
-  "main": "index.js",
+  "description": "http-server-lab",
+  "main": "http-server.js",
   "directories": {
-    "test": "test"
+    "test": "mocha"
   },
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "eslint": "^3.8.1",
+    "figlet": "^1.2.0",
     "mocha": "^3.1.2"
   },
   "scripts": {
-    "test": "return 0",
+    "test": "mocha",
     "test:watch": "mocha -w",
     "lint": "eslint"
   },
@@ -23,7 +24,7 @@
     "url": "git+https://github.com/caraldi/http-hello-goodbye-world.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/caraldi/http-hello-goodbye-world/issues"
   },
