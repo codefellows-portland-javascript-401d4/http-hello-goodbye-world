@@ -10,6 +10,12 @@ This simple server responds with different responses based on the URL:
 
 `/hows-the-weather` => `'It's cool and rainy. :-('`
 
+`/favorite?<thing>` => (returns the name of its favorite thing; ask it about bird, flower, mammal, or coffee)
+
+You can try to POST a favorite, but don't be surprised if the server doesn't want to change its mind.
+
+`/todo[?format=[text|json]]` => returns a list of things to do in either text or JSON format
+
 If any other URL is given, it returns a 404 with a helpful error message.
 
 ## Code Example
@@ -27,7 +33,7 @@ This was written as a lab assignment for Code Fellows 401 class. The server spin
 
 ## Tests
 
-No tests implemented yet. ~~The accompanying test suite can be run using the 'npm test' command.~~
+The accompanying test suite can be run using the 'npm test' command.
 
 ## Contributors
 
