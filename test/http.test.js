@@ -2,7 +2,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const assert = chai.assert;
-const server = require('../serverListener');
+const server = require('../index');
 
 
 describe('http server functionality', () => {
