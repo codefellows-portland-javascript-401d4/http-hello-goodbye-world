@@ -3,20 +3,20 @@ const chaiHttp = require('chai-http');
 const assert = chai.assert;
 chai.use(chaiHttp);
 
-const reqHandlers = require('../lib/requestHandlers');
 const server = require('../lib/hello-server');
 
-describe('Tests TBA', (req, res) => {
+describe('Test output for page routing in hello-goodbye app', (req, res) => {
 
   const request = chai.request(server);
 
-  it('does all that and then some!', (done) => {
+  it('logs out response', (done) => {
     request
-      .get('/')
-      .then(res => {
-        console.log(res);
+      .get('/hello')
+      .then(() => {
+        console.log('res: ', res);
+        assert.deepEqual(res.text, 'foo');
       })
       .catch(done);
-    done();
   });
+  
 });
