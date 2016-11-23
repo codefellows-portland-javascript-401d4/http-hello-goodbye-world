@@ -1,9 +1,22 @@
-var assert = require('assert');
-var reqHandlers = require('../lib/requestHandlers');
+const chai = require('chai');
+const chaiHttp = require('chai-http');
+const assert = chai.assert;
+chai.use(chaiHttp);
 
-describe('Tests TBA', () => {
-  it('does all that and then some!', () => {
-    reqHandlers.hello();
-    assert.equal((1+1), 2);
+const reqHandlers = require('../lib/requestHandlers');
+const server = require('../lib/hello-server');
+
+describe('Tests TBA', (req, res) => {
+
+  const request = chai.request(server);
+
+  it('does all that and then some!', (done) => {
+    request
+      .get('/')
+      .then(res => {
+        console.log(res);
+      })
+      .catch(done);
+    done();
   });
 });
