@@ -1,11 +1,5 @@
-var server = require('./lib/server');
-var router = require('./lib/router');
-var requestHandlers = require('./lib/requestHandlers');
+const server = require('./lib/hello-server');
 
-var handle = {};
-handle['/'] = requestHandlers.hello;
-handle['/hello'] = requestHandlers.hello;
-handle['/goodbye'] = requestHandlers.goodbye;
-handle['/shalom'] = requestHandlers.shalom;
-
-server.hello(router.route, handle);
+server.listen(8888, () => {
+  console.log('Server has started.');
+});
