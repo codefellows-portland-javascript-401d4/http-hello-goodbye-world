@@ -7,9 +7,10 @@ const figlet = require('figlet');
 const indexHtml = fs.createReadStream('index.html');
 
 // create new instance of http server
-const server = http.createServer((req, res) => {
+module.exports = http.createServer((req, res) => {
   console.log(req.url);
   res.statusCode = 200; // http status code 200 = okay
+
   if (req.url === '') {
     indexHtml.pipe(res);
   }
@@ -46,13 +47,13 @@ const server = http.createServer((req, res) => {
     res.end();
   }
 
-  // url query parameter still non-functional
+  // url query
   const url = parseUrl(req.url);
   if (url.pathname === '/spider') {
     const query = qs.parse(url.query);
     const type = query.format === 'text' ? 'text/plain' : 'application/json';
     res.setHeader('Content-Type', type);
-    res.end(JSON.stringify({docid: 'spiders from Mars'}));
+    res.end(JSON.stringify('Spiders from Angry Red Planet Mars'));
   }
 
   else {
@@ -61,10 +62,4 @@ const server = http.createServer((req, res) => {
     }
     res.end();
   }
-});
-
-const port = 8080;
-server.listen(port, err => {
-  if(err) console('error', err);
-  else console.log('http server listening on port', port);
 });
