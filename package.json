@@ -4,7 +4,7 @@
   "description": "an http responsive ",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,9 @@
   "homepage": "https://github.com/hpats67/http-hello-goodbye-world#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.2"
+    "chai-http": "^3.0.0",
+    "eslint": "^3.12.0",
+    "mocha": "^3.2.0"
   },
   "dependencies": {
     "figlet": "^1.2.0"
