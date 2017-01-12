@@ -4,7 +4,6 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 const assert = chai.assert;
 const server = require('../lib/http-server');
-const figlet = require('figlet');
 
 describe ('http server', () => {
     let request = chai.request(server);
@@ -18,12 +17,12 @@ describe ('http server', () => {
             });
     });
 
-    it('responds to request made to path /hello', done => {
+    it('responds to GET request made to path /hello', done => {
         request
             .get('/hello')
             .end((err, res) => {
                 if(err) return done(err);
-                assert.equal(res.text, figlet('hello, \nworld'));
+                assert.equal(res.text, 'hello, \nworld');
                 done();
             });
     });
@@ -39,22 +38,22 @@ describe ('http server', () => {
             });
     });
 
-    it('responds to request to /post url path && POST request', done => {
+    it('responds to POST request', done => {
         request
-            .post('/post/:hi')
+            .post('/hello/:hi')
             .end((err, res) => {
                 if(err) return done(err);
-                assert.equal(res.text, 'You added: /post/:hi');
+                assert.equal(res.text, 'ERROR, BAD REQUEST');
                 done();
             });
     });
 
     it('returns a 400 error code for invalid url request', done => {
         request
-        .get('/not-valid')
-        .end((error, response) => {
-            expect(response).status(400);
-            done();
-        });
+            .get('/not-valid')
+            .end((error, response) => {
+                expect(response).status(400);
+                done();
+            });
     });
 });
