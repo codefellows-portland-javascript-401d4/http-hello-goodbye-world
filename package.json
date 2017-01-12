@@ -15,9 +15,10 @@
     "mocha": "^3.1.2"
   },
   "scripts": {
+    "pretest": "npm run lint",
     "test": "mocha",
     "test:watch": "mocha -w",
-    "lint": "eslint"
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
