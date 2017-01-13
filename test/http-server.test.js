@@ -1,61 +1,59 @@
-'use strict';
-
 const chai = require('chai');
+const chaiHttp = require('chai-http');
+chai.use(chaiHttp);
 const expect = chai.expect;
 const assert = chai.assert;
-const chaiHttp = require('chai-http');
-const server = require('../lib/http-server.js');
+const server = require('../lib/http-server');
 
-chai.use(chaiHttp);
+describe ('http server', () => {
+    let request = chai.request(server);
 
-describe ('server e2e tests', () => {
-    const request = chai.request(server);
-
-    it('returns a 200 status code for successful requests', done => {
+    it('returns 200 status code for successful requests', done => {
         request
-        .get('/')
-        .end((error, response) => {
-            expect(response).status(200);
-            done();
-        });
+            .get('/')
+            .end((err, res) => {
+                expect(res).status(200);
+                done();
+            });
     });
 
-    it('returns response for specified url path request', done => {
+    it('responds to GET request made to path /hello', done => {
         request
-        .get('/')
-        .end((error, response) => {
-            if(error) return done(error);
-            assert.equal(response.text, response.text);
-            done();
-        });
+            .get('/hello')
+            .end((err, res) => {
+                if(err) return done(err);
+                assert.equal(res.text, 'hello, \nworld');
+                done();
+            });
     });
 
-    it('returns response for specified url path + query string request', done => {
+    it('returns text response to query string request', done => {
         request
-        .get('/blue-heeler?type=dog&breed=acd')
-        .end((error, response) =>{
-            if(error) return done(error);
-            assert.equal(response.text, response.text);
-            done();
-        });
+            .get('/?format=text')
+            .end((err, res) => {
+                if(err) return done(err);
+                assert.equal(res.type, 'text');
+                assert.equal(res.text, 'You requested: ?format=text');
+                done();
+            });
     });
 
-    it('returns response for /get url path and GET request', done => {
+    it('responds to POST request', done => {
         request
-        .get('/get')
-        .end((error, response) => {
-            if(error) return done(error);
-            assert.equal(response.text, response.text);
-            done();
-        });
+            .post('/hello/:hi')
+            .end((err, res) => {
+                if(err) return done(err);
+                assert.equal(res.text, 'ERROR, BAD REQUEST');
+                done();
+            });
     });
 
     it('returns a 400 error code for invalid url request', done => {
         request
-        .get('/not-valid')
-        .end((error, response) => {
-            expect(response).status(400);
-            done();
-        });
+            .get('/not-valid')
+            .end((error, response) => {
+                expect(response).status(400);
+                done();
+            });
     });
 });
