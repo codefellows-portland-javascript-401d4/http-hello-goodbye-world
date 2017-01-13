@@ -59,5 +59,15 @@ describe('test http server', () => {
             });
     });
 
+    it('request using different HTTP verb', done => {
+        request
+          .delete('/')
+          .end((err, response) => {
+              if(err) return done(err);
+              assert.deepEqual(response.text, 'data has been deleted');
+              done();
+          });
+    });
+
 
 });
