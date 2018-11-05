@@ -1,0 +1,33 @@
+{
+  "name": "http-hello-goodbye-world",
+  "version": "1.0.0",
+  "description": "simple http server router req handler",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txtincorporated/http-hello-goodbye-world.git"
+  },
+  "keywords": [
+    "server",
+    "router",
+    "request-handler"
+  ],
+  "author": "Nathan P. Keene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/txtincorporated/http-hello-goodbye-world/issues"
+  },
+  "homepage": "https://github.com/txtincorporated/http-hello-goodbye-world#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.1.2"
+  },
+  "dependencies": {
+    "figlet": "^1.2.0"
+  }
+}
